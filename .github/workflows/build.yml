@@ -1,0 +1,36 @@
+name: Build Flutter APK
+
+on:
+  workflow_dispatch:    # Manual trigger from GitHub UI
+  push:
+    branches:
+      - main             # Change to your default branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.19.6' # or your preferred version
+        channel: stable
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Enable Flutter for Android
+      run: flutter config --enable-android
+
+    - name: Build release APK
+      run: flutter build apk --release
+
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-apk
+        path: build/app/outputs/flutter-apk/app-release.apk
