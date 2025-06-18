@@ -12,7 +12,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final String backendUrl =
-      "https://guna16.pythonanywhere.co/send-notification/";
+      "https://guna16.pythonanywhere.com/send-notification/";
 
   Future<void> sendTokenToBackend() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
