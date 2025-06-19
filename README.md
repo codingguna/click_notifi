@@ -42,27 +42,27 @@ flutter_local_notifications
 http
 ```
 - Add Internet and POST_NOTIFICATIONS permissions
-- Use getToken() to get FCM token
+- Use `getToken()` to get FCM token
 - Send it to your backend
 
 ---
 
-###Django:
+### Django:
 - Install firebase-admin
-- Load serviceAccountKey.json
+- Load `serviceAccountKey.json`
 - Handle /send-notification/ endpoint
 - Add your domain to ALLOWED_HOSTS
 
 ---
 
-##🚀 Demo
+## 🚀 Demo
 - Run Django server (e.g., PythonAnywhere)
 - Run Flutter app on a device
 - Click "Send Notification" → You’ll see a local notification
 
 ---
 
-##📌 Notes
+## 📌 Notes
 - Token changes after reinstall – always send updated token
 - Foreground messages use flutter_local_notifications
 - Backend uses FCM v1 with service account
